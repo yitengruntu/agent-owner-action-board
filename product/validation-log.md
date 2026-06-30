@@ -63,3 +63,30 @@ Do not wait 24 hours on this HN attempt as a decision-grade test. Do not repost 
 Next action:
 
 Use a different channel for the owner-action workflow question, preferably one where new accounts can comment or where a narrower community accepts project/workflow discussion.
+
+## 2026-06-30 r/ClaudeAI Attempt
+
+Channel:
+
+- Reddit r/ClaudeAI.
+
+Public link:
+
+- https://www.reddit.com/r/ClaudeAI/comments/1ujepyr/how_do_you_track_what_claude_code_is_waiting_for/
+
+Observed result:
+
+- Owner screenshot shows the post page with the notice: "Sorry, this post was removed by Reddit's filters."
+- The post used a no-link workflow question and did not include the GitHub repo or demo URL.
+
+Interpretation:
+
+This is another channel-access failure, not a demand signal. Because the no-link version was filtered, reposting with a product link from the same account would be lower-quality and more likely to be filtered again.
+
+Decision:
+
+Do not count this Reddit attempt as an exposure window. Do not repost the same question in r/ClaudeAI from this account for this probe.
+
+Next action:
+
+Move distribution to channels where the post can actually remain visible, or use existing GitHub traffic from direct project sharing as the next measurable signal.
