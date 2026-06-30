@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generated_at": "2026-06-30T15:47:00+08:00",
+  "generated_at": "2026-06-30T16:15:00+08:00",
   "projects": [
     {
       "id": "agent-owner-action-board",
       "name": "Agent Owner Action Board",
-      "status": "waiting_for_owner",
-      "last_run_at": "2026-06-30T15:47:00+08:00",
-      "current_checkpoint": "After the r/ClaudeAI removal, the agent found Cursor Community Forum as the next better-fit visible distribution channel.",
+      "status": "waiting_for_data",
+      "last_run_at": "2026-06-30T16:15:00+08:00",
+      "current_checkpoint": "The Cursor Forum topic is publicly visible and starts the first valid exposure window for this project.",
       "blocked": true,
-      "blocker": "Posting to Cursor Forum requires the owner to use or create an account; the agent prepared the exact topic copy and measurement rule.",
+      "blocker": "The project now needs time for the visible Cursor Forum topic to collect replies and GitHub traffic before a demand decision.",
       "recent_commits": [
         {
           "hash": "0f422d6",
@@ -30,26 +30,26 @@
       "owner_actions": [
         {
           "id": "oa-001",
-          "status": "open",
+          "status": "done",
           "urgency": "now",
-          "needed_by": "2026-07-01",
+          "needed_by": "2026-06-30",
           "where": "Cursor Forum Showcase / Built for Cursor",
-          "what": "Post the prepared Cursor Forum topic from distribution/visible-test-queue.md and provide the public topic URL.",
+          "what": "Post the prepared Cursor Forum topic and provide the public topic URL.",
           "why": "Cursor Forum is a better-fit visible channel for agent workflow tools than the failed Reddit/HN attempts."
         },
         {
           "id": "oa-002",
           "status": "open",
           "urgency": "next",
-          "needed_by": "after-next-visible-share",
+          "needed_by": "2026-07-01T16:13:00+08:00",
           "where": "GitHub Traffic",
-          "what": "Check repo views, unique visitors, clones, stars, issues, comments, and Cursor Forum replies 24 hours after the Cursor Forum topic is visible.",
+          "what": "Check repo views, unique visitors, clones, stars, issues, comments, and Cursor Forum replies 24 hours after the topic went live.",
           "why": "The first demand read should be based on a valid visible exposure window."
         }
       ],
       "next_review": {
-        "date": "2026-07-01",
-        "reason": "Start the 24-hour read after the Cursor Forum topic is publicly visible"
+        "date": "2026-07-01T16:13:00+08:00",
+        "reason": "24-hour read after the Cursor Forum topic became publicly visible"
       }
     }
   ]

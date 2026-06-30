@@ -60,6 +60,9 @@ Primary option:
 - Cursor Forum Showcase: https://forum.cursor.com/c/showcase/9
 - Category fit: `Built for Cursor` is for extensions, MCP servers, rules, and integrations built for Cursor users.
 - Why: public Discourse forum, visible without Reddit karma, already has posts about context, MCP, hooks, rules, and agent workflow tools.
+- Result: posted on 2026-06-30 and confirmed publicly visible.
+- Public topic: https://forum.cursor.com/t/agent-owner-action-board-track-what-your-local-agents-need-from-you-next/164406
+- Measurement: 24-hour read at 2026-07-01 16:13 Asia/Shanghai; 72-hour read at 2026-07-03 16:13 Asia/Shanghai.
 
 Post title:
 

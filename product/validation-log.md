@@ -169,3 +169,32 @@ Use Cursor Forum as the next validation channel. Prefer a new Showcase / Built f
 Next action:
 
 Owner should post the prepared Cursor Forum copy from `distribution/visible-test-queue.md`, then provide the public topic URL.
+
+## 2026-06-30 Cursor Forum Topic Live
+
+Channel:
+
+- Cursor Community Forum / Showcase / Built for Cursor.
+
+Public link:
+
+- https://forum.cursor.com/t/agent-owner-action-board-track-what-your-local-agents-need-from-you-next/164406
+
+Observed result:
+
+- Agent fetched the topic from a non-owner crawler view and received HTTP 200.
+- Page title is visible: `Agent Owner Action Board: track what your local agents need from you next`.
+- The page includes the post body, GitHub onebox, and category breadcrumbs `Showcase` / `Built for Cursor`.
+- Discourse metadata reports published time `2026-06-30T08:13:33Z`.
+
+Interpretation:
+
+This is the first valid visible exposure window for Agent Owner Action Board.
+
+Decision:
+
+Start the 24-hour measurement window from 2026-06-30 16:13:33 Asia/Shanghai.
+
+Next action:
+
+Read Cursor Forum replies and GitHub traffic at the 24-hour checkpoint on 2026-07-01 16:13 Asia/Shanghai, then read again at the 72-hour checkpoint on 2026-07-03 16:13 Asia/Shanghai.
