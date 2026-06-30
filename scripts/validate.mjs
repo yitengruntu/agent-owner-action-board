@@ -19,6 +19,7 @@ const requiredFiles = [
   "scripts/board-schema.mjs",
   "scripts/check-status.mjs",
   "scripts/render-board.mjs",
+  ".github/workflows/validate.yml",
   ".github/ISSUE_TEMPLATE/config.yml",
   ".github/ISSUE_TEMPLATE/connector-request.yml",
   "distribution/launch-copy.md"
