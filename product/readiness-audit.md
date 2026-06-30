@@ -1,10 +1,10 @@
 # Launch Readiness Audit
 
-Date: 2026-06-20
+Date: 2026-06-30
 
 ## Recommendation
 
-Do not public-launch this yet. First package the owner-action focused demo as a small utility, then request owner approval for one narrow public test.
+Keep the product in narrow validation. The repo is packaged enough for visible distribution, but connector development should wait for external workflow demand.
 
 ## Ready
 
@@ -12,16 +12,20 @@ Do not public-launch this yet. First package the owner-action focused demo as a 
 - Narrow MVP: static local HTML generated from JSON.
 - Demo exists at `demo/index.html` and is mirrored to `docs/index.html` for GitHub Pages.
 - Data model exists at `product/data-model.json`.
-- Validation plan exists.
+- Renderer exists at `scripts/render-board.mjs`.
+- Status contract validator exists at `scripts/check-status.mjs`.
+- Copy-paste local agent integration prompt exists at `product/agent-integration-prompt.md`.
+- GitHub Pages is enabled at https://yitengruntu.github.io/agent-owner-action-board/.
+- Validation plan and measurement checkpoints exist.
 - Experiment 001 showed broad runbook positioning is too weak, so this must stay narrow.
 
 ## Not Ready
 
 - It does not read real Codex automation state yet.
-- It has no install instructions.
 - It has no multi-project file discovery.
 - It has no recurring refresh mechanism.
 - It is not clearly monetizable before the buyer segment is validated.
+- No valid public exposure window has started yet because HN and Reddit attempts were hidden or removed.
 
 ## Best Use Right Now
 
@@ -33,11 +37,12 @@ Use this as a narrower follow-up to the failed Agent CEO Runbook Kit:
 
 ## If Launched Separately
 
-Owner approval would be required for:
+Already public:
 
-- Public GitHub repo or page.
-- Demo URL.
-- Public post or Product Hunt launch.
+- GitHub repo.
+- GitHub Pages demo.
+
+Owner approval or owner operation is still required for account-gated community posting.
 
 ## Stop Rule
 
@@ -45,4 +50,4 @@ Do not continue building this into a full tool until at least one external user 
 
 ## Current Launch Gate
 
-The static demo is ready for GitHub Pages setup. Do not build connectors until the public probe produces a concrete runner request.
+The static demo is public and packageable. Do not build connectors until a visible public probe produces a concrete runner request.
