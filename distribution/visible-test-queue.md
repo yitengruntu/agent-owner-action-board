@@ -51,6 +51,59 @@ It is not a daemon or hosted dashboard. The idea is just: agent writes one JSON 
 Do people here track this manually today, or is there a cleaner pattern I should study?
 ```
 
+## Next Non-Reddit Candidate Found 2026-06-30
+
+Use Cursor Community Forum before trying another Reddit or HN surface.
+
+Primary option:
+
+- Cursor Forum Showcase: https://forum.cursor.com/c/showcase/9
+- Category fit: `Built for Cursor` is for extensions, MCP servers, rules, and integrations built for Cursor users.
+- Why: public Discourse forum, visible without Reddit karma, already has posts about context, MCP, hooks, rules, and agent workflow tools.
+
+Post title:
+
+```text
+Agent Owner Action Board: track what your local agents need from you next
+```
+
+Post body:
+
+```text
+I am testing a small local-first pattern for people running Cursor, Claude Code, Codex, or local scripts across multiple projects.
+
+The problem: an agent often stops being useful because it needs the owner to do something external: approve a deploy, export data, grant account access, make a product decision, or check a result after a time window. That action gets buried in terminal output or chat history.
+
+Prototype:
+https://github.com/yitengruntu/agent-owner-action-board
+
+It is intentionally small right now:
+- agent writes one JSON status file
+- local renderer turns it into a static HTML board
+- board shows blocker, exact owner action, recent commits, and next review window
+
+I am not building a Cursor-specific connector until I know the workflow matters. For people using Cursor agents seriously: would you want this as a repo file, a Cursor rule/hook, an MCP server, or something else?
+```
+
+Secondary option:
+
+- Existing Cursor discussion: https://forum.cursor.com/t/how-are-people-handling-context-across-different-ai-coding-tools/159891
+- Why: thread explicitly discusses Claude Code, Codex, Cursor, AGENTS.md, MCP memory, and cross-tool state.
+- Risk: the thread is about context/memory, so comment should focus on owner-action handoff rather than posting a generic product link.
+
+Reply body:
+
+```text
+The AGENTS.md + scripts-as-source-of-truth pattern makes sense for project context. A related problem I keep running into is run-state rather than context: the agent stops because it needs the owner to do something external, and that action gets buried in chat/terminal history.
+
+Examples: approve a deploy, export data, grant account access, make a product decision, or check a result after a time window.
+
+I am testing a tiny local-first version of this: one JSON status file in the repo, rendered into a static owner-action board:
+https://github.com/yitengruntu/agent-owner-action-board
+
+Do people here usually track that state in TODO files, issue trackers, AGENTS.md, MCP memory, or somewhere else?
+```
+
 ## Backup Test
 
 Share the GitHub repo directly with one small builder community where links are allowed.

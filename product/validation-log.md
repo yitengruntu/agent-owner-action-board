@@ -144,3 +144,28 @@ Do not count this as a valid exposure window. Do not make further r/ClaudeAI att
 Next action:
 
 Move to a non-Reddit, non-HN visible channel or a direct GitHub/website distribution path.
+
+## 2026-06-30 Cursor Forum Candidate
+
+Channel:
+
+- Cursor Community Forum.
+
+Candidate surfaces:
+
+- Showcase / Built for Cursor: https://forum.cursor.com/c/showcase/9
+- Existing discussion on cross-tool context: https://forum.cursor.com/t/how-are-people-handling-context-across-different-ai-coding-tools/159891
+
+Observed fit:
+
+- The forum is public and Discourse-based.
+- The Showcase page explicitly includes `Built for Cursor` for extensions, MCP servers, rules, and integrations built for Cursor users.
+- The existing context thread discusses Claude Code, Codex, Cursor, AGENTS.md, MCP memory, and cross-tool state.
+
+Decision:
+
+Use Cursor Forum as the next validation channel. Prefer a new Showcase / Built for Cursor post because it is explicitly intended for built tools and reduces off-topic risk inside the context thread.
+
+Next action:
+
+Owner should post the prepared Cursor Forum copy from `distribution/visible-test-queue.md`, then provide the public topic URL.

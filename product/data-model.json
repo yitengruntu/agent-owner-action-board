@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generated_at": "2026-06-30T15:38:00+08:00",
+  "generated_at": "2026-06-30T15:47:00+08:00",
   "projects": [
     {
       "id": "agent-owner-action-board",
       "name": "Agent Owner Action Board",
       "status": "waiting_for_owner",
-      "last_run_at": "2026-06-30T15:38:00+08:00",
-      "current_checkpoint": "The selected r/ClaudeAI comment was removed by Reddit, confirming the channel is not usable for this account right now.",
+      "last_run_at": "2026-06-30T15:47:00+08:00",
+      "current_checkpoint": "After the r/ClaudeAI removal, the agent found Cursor Community Forum as the next better-fit visible distribution channel.",
       "blocked": true,
-      "blocker": "No valid visible exposure window has started; the next validation attempt should use a non-Reddit, non-HN channel or a direct GitHub/website path.",
+      "blocker": "Posting to Cursor Forum requires the owner to use or create an account; the agent prepared the exact topic copy and measurement rule.",
       "recent_commits": [
         {
           "hash": "0f422d6",
@@ -33,9 +33,9 @@
           "status": "open",
           "urgency": "now",
           "needed_by": "2026-07-01",
-          "where": "Distribution channel",
-          "what": "Use a non-Reddit, non-HN visible channel for the next owner-action board distribution attempt.",
-          "why": "Both Reddit and HN attempts have failed at the channel-access layer and should not be counted as demand data."
+          "where": "Cursor Forum Showcase / Built for Cursor",
+          "what": "Post the prepared Cursor Forum topic from distribution/visible-test-queue.md and provide the public topic URL.",
+          "why": "Cursor Forum is a better-fit visible channel for agent workflow tools than the failed Reddit/HN attempts."
         },
         {
           "id": "oa-002",
@@ -43,13 +43,13 @@
           "urgency": "next",
           "needed_by": "after-next-visible-share",
           "where": "GitHub Traffic",
-          "what": "Check repo views, unique visitors, clones, stars, issues, and comments 24 hours after the next confirmed visible share.",
+          "what": "Check repo views, unique visitors, clones, stars, issues, comments, and Cursor Forum replies 24 hours after the Cursor Forum topic is visible.",
           "why": "The first demand read should be based on a valid visible exposure window."
         }
       ],
       "next_review": {
         "date": "2026-07-01",
-        "reason": "Start the 24-hour read only after the next confirmed visible share"
+        "reason": "Start the 24-hour read after the Cursor Forum topic is publicly visible"
       }
     }
   ]
