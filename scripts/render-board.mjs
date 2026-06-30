@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { assertBoard } from "./board-schema.mjs";
 
 const inputPath = process.argv[2] ?? "product/data-model.json";
 const outputPaths = process.argv.slice(3);
@@ -7,13 +8,7 @@ const targets = outputPaths.length > 0 ? outputPaths : ["demo/index.html", "docs
 
 const board = JSON.parse(fs.readFileSync(inputPath, "utf8"));
 
-if (board.version !== 1) {
-  throw new Error(`Unsupported board version: ${board.version}`);
-}
-
-if (!Array.isArray(board.projects)) {
-  throw new Error("Board data must include projects[]");
-}
+assertBoard(board, inputPath);
 
 for (const target of targets) {
   fs.mkdirSync(path.dirname(target), { recursive: true });

@@ -37,6 +37,12 @@ Render an agent-written file:
 npm run render -- .agent-owner-actions/status.json board.html
 ```
 
+Check an agent-written file before rendering:
+
+```bash
+npm run check:status -- .agent-owner-actions/status.json
+```
+
 ## What It Tracks
 
 - Last agent run

@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "check:status": "node scripts/check-status.mjs",
     "render": "node scripts/render-board.mjs",
     "validate": "node scripts/validate.mjs"
   }

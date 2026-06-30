@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { assertBoard } from "./board-schema.mjs";
 
 const requiredFiles = [
   "README.md",
@@ -13,6 +14,8 @@ const requiredFiles = [
   "product/scope.md",
   "product/validation-plan.md",
   "product/validation-log.md",
+  "scripts/board-schema.mjs",
+  "scripts/check-status.mjs",
   "scripts/render-board.mjs",
   ".github/ISSUE_TEMPLATE/config.yml",
   ".github/ISSUE_TEMPLATE/connector-request.yml",
@@ -43,6 +46,8 @@ for (const marker of ["product/data-model.json", "escapeHtml", "Rendered"]) {
     throw new Error(`Renderer missing marker: ${marker}`);
   }
 }
+
+assertBoard(JSON.parse(fs.readFileSync("product/data-model.json", "utf8")), "product/data-model.json");
 
 const readme = fs.readFileSync("README.md", "utf8");
 for (const marker of ["https://yitengruntu.github.io/agent-owner-action-board/", "Open an issue"]) {

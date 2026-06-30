@@ -26,6 +26,12 @@ Render a board from an agent-written status file:
 npm run render -- .agent-owner-actions/status.json board.html
 ```
 
+Validate a status file before rendering:
+
+```bash
+npm run check:status -- .agent-owner-actions/status.json
+```
+
 ## How This Would Connect Later
 
 A local agent should write a JSON file like `product/data-model.json` to:
