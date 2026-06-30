@@ -22,7 +22,8 @@ const requiredFiles = [
   ".github/workflows/validate.yml",
   ".github/ISSUE_TEMPLATE/config.yml",
   ".github/ISSUE_TEMPLATE/connector-request.yml",
-  "distribution/launch-copy.md"
+  "distribution/launch-copy.md",
+  "distribution/visible-test-queue.md"
 ];
 
 for (const file of requiredFiles) {
@@ -70,6 +71,13 @@ const measurement = fs.readFileSync("product/measurement-checkpoints.md", "utf8"
 for (const marker of ["Valid Exposure Window", "24-Hour Read", "72-Hour Read"]) {
   if (!measurement.includes(marker)) {
     throw new Error(`Measurement checkpoints missing marker: ${marker}`);
+  }
+}
+
+const visibleTestQueue = fs.readFileSync("distribution/visible-test-queue.md", "utf8");
+for (const marker of ["Preferred Next Test", "Backup Test", "What To Check After Posting"]) {
+  if (!visibleTestQueue.includes(marker)) {
+    throw new Error(`Visible test queue missing marker: ${marker}`);
   }
 }
 
