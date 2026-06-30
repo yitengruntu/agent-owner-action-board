@@ -11,6 +11,7 @@ const requiredFiles = [
   "product/data-model.json",
   "product/install.md",
   "product/launch-positioning.md",
+  "product/measurement-checkpoints.md",
   "product/readiness-audit.md",
   "product/scope.md",
   "product/validation-plan.md",
@@ -61,6 +62,13 @@ const integrationPrompt = fs.readFileSync("product/agent-integration-prompt.md",
 for (const marker of [".agent-owner-actions/status.json", "npm run check:status", "waiting_for_owner"]) {
   if (!integrationPrompt.includes(marker)) {
     throw new Error(`Integration prompt missing marker: ${marker}`);
+  }
+}
+
+const measurement = fs.readFileSync("product/measurement-checkpoints.md", "utf8");
+for (const marker of ["Valid Exposure Window", "24-Hour Read", "72-Hour Read"]) {
+  if (!measurement.includes(marker)) {
+    throw new Error(`Measurement checkpoints missing marker: ${marker}`);
   }
 }
 

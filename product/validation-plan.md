@@ -10,13 +10,14 @@ Build a static generated HTML report and show it as a demo. Ask whether users wo
 
 ## Status
 
-Active validation probe.
+Active validation probe, but no valid exposure window has started yet.
 
 ## Channels
 
 - GitHub-first public probe.
-- GitHub Pages demo after Pages is enabled.
-- One narrow community post after the repo is ready.
+- GitHub Pages demo.
+- One narrow community post or reply only when the post can remain visible.
+- GitHub repo traffic after direct public sharing.
 
 ## Public Links
 
@@ -27,6 +28,7 @@ Active validation probe.
 
 - First read: 24 hours after first external distribution.
 - Decision read: 72 hours after first external distribution.
+- Removed, dead, filtered, or hidden posts do not start the window.
 
 ## Signals
 
@@ -53,12 +55,10 @@ No external technical interaction after a complete launch attempt.
 
 ## Owner Setup Needed
 
-Before distribution, enable GitHub Pages from `main /docs` and set repo About fields:
-
-- Description: `Track what your local AI agents need from you next.`
-- Website: `https://yitengruntu.github.io/agent-owner-action-board/`
-- Topics: `ai-agents`, `codex`, `claude-code`, `local-first`, `automation`
+None for the repo. GitHub Pages and repo About fields are already configured.
 
 ## Next Build Checkpoint
 
 Do not build connectors yet. Build a real connector only after an external user asks for a specific runner such as Codex, Claude Code, Cursor, cron, GitHub Actions, or a custom local script.
+
+Use `product/measurement-checkpoints.md` for the 24-hour and 72-hour reads.
