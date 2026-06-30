@@ -13,6 +13,7 @@ const requiredFiles = [
   "product/scope.md",
   "product/validation-plan.md",
   "product/validation-log.md",
+  "scripts/render-board.mjs",
   ".github/ISSUE_TEMPLATE/config.yml",
   ".github/ISSUE_TEMPLATE/connector-request.yml",
   "distribution/launch-copy.md"
@@ -34,6 +35,13 @@ for (const marker of ["Agent Owner Action Board", "Open owner actions", "What th
 const docs = fs.readFileSync("docs/index.html", "utf8");
 if (docs !== demo) {
   throw new Error("docs/index.html must match demo/index.html");
+}
+
+const renderScript = fs.readFileSync("scripts/render-board.mjs", "utf8");
+for (const marker of ["product/data-model.json", "escapeHtml", "Rendered"]) {
+  if (!renderScript.includes(marker)) {
+    throw new Error(`Renderer missing marker: ${marker}`);
+  }
 }
 
 const readme = fs.readFileSync("README.md", "utf8");

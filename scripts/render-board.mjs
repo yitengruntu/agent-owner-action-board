@@ -1,4 +1,40 @@
-<!doctype html>
+import fs from "node:fs";
+import path from "node:path";
+
+const inputPath = process.argv[2] ?? "product/data-model.json";
+const outputPaths = process.argv.slice(3);
+const targets = outputPaths.length > 0 ? outputPaths : ["demo/index.html", "docs/index.html"];
+
+const board = JSON.parse(fs.readFileSync(inputPath, "utf8"));
+
+if (board.version !== 1) {
+  throw new Error(`Unsupported board version: ${board.version}`);
+}
+
+if (!Array.isArray(board.projects)) {
+  throw new Error("Board data must include projects[]");
+}
+
+for (const target of targets) {
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.writeFileSync(target, `${renderBoard(board)}\n`);
+}
+
+console.log(`Rendered ${targets.join(", ")} from ${inputPath}`);
+
+function renderBoard(data) {
+  const projects = data.projects;
+  const openActions = projects
+    .flatMap((project) =>
+      Array.isArray(project.owner_actions)
+        ? project.owner_actions
+            .filter((action) => action.status !== "done")
+            .map((action) => ({ project, action }))
+        : []
+    )
+    .sort((left, right) => urgencyRank(left.action.urgency) - urgencyRank(right.action.urgency));
+
+  return `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -212,76 +248,137 @@
       <section class="action-board" aria-label="Owner actions">
         <div class="action-intro">
           <p class="eyebrow">Open owner actions</p>
-          <strong>2</strong>
+          <strong>${openActions.length}</strong>
         </div>
         <div class="action-list">
           <h3>What the agent needs next</h3>
-          <ul><li>
-    <span class="urgency">now</span>
-    <strong>Confirm whether the repo received real views, stars, clones, issues, or comments after a visible share.</strong>
-    <small>Agent Owner Action Board · GitHub Traffic or any visible community thread · due 2026-07-01</small>
-  </li><li>
-    <span class="urgency">next</span>
-    <strong>Decide whether to keep validating the owner-action board or park it after the first visible channel read.</strong>
-    <small>Agent Owner Action Board · Product direction · due 2026-07-03</small>
-  </li></ul>
+          ${renderOpenActions(openActions)}
         </div>
       </section>
-      
-    <article class="project-card is-blocked">
+      ${projects.map(renderProject).join("")}
+    </main>
+  </body>
+</html>`;
+}
+
+function renderOpenActions(openActions) {
+  if (openActions.length === 0) {
+    return `<p>No owner action is open. The agent can keep working or wait for the next review window.</p>`;
+  }
+
+  return `<ul>${openActions
+    .map(
+      ({ project, action }) => `<li>
+    <span class="urgency">${escapeHtml(action.urgency ?? "next")}</span>
+    <strong>${escapeHtml(action.what ?? "Owner action required")}</strong>
+    <small>${escapeHtml(project.name)} · ${escapeHtml(action.where ?? "Owner")} · due ${escapeHtml(action.needed_by ?? "unscheduled")}</small>
+  </li>`
+    )
+    .join("")}</ul>`;
+}
+
+function renderProject(project) {
+  const status = project.blocked ? "Blocked" : sentenceLabel(project.status ?? "working");
+  const statusClass = project.blocked ? "" : " is-working";
+  const nextReview = project.next_review
+    ? `${project.next_review.date ?? "unscheduled"} · ${project.next_review.reason ?? "Review project state"}`
+    : "None scheduled";
+
+  return `
+    <article class="project-card ${project.blocked ? "is-blocked" : "is-working"}">
       <div class="project-head">
         <div>
-          <p class="eyebrow">waiting for owner</p>
-          <h2>Agent Owner Action Board</h2>
+          <p class="eyebrow">${escapeHtml(project.blocked ? "waiting for owner" : "agent can continue")}</p>
+          <h2>${escapeHtml(project.name ?? project.id ?? "Unnamed project")}</h2>
         </div>
-        <span class="status-pill">Blocked</span>
+        <span class="status-pill${statusClass}">${escapeHtml(status)}</span>
       </div>
       <dl class="meta-grid">
         <div>
           <dt>Last run</dt>
-          <dd>2026-06-30T13:20:00+08:00</dd>
+          <dd>${escapeHtml(project.last_run_at ?? "Unknown")}</dd>
         </div>
         <div>
           <dt>Checkpoint</dt>
-          <dd>The agent prepared a GitHub Pages demo and tried two public discussion channels. Hacker News and Reddit both filtered the posts before a valid exposure window could start.</dd>
+          <dd>${escapeHtml(project.current_checkpoint ?? "No checkpoint recorded.")}</dd>
         </div>
         <div>
           <dt>Blocker</dt>
-          <dd>The project needs a visible distribution channel or a GitHub traffic read before the agent can make a demand decision.</dd>
+          <dd>${escapeHtml(project.blocker || "No blocker recorded.")}</dd>
         </div>
         <div>
           <dt>Next review</dt>
-          <dd>2026-07-01 · 24-hour read after the first visible exposure or direct GitHub share</dd>
+          <dd>${escapeHtml(nextReview)}</dd>
         </div>
       </dl>
       <div class="columns">
         <section>
           <h3>Owner actions</h3>
-          <ul><li>
-      <span class="urgency">now</span>
-      <strong>GitHub Traffic or any visible community thread</strong>
-      <span>Confirm whether the repo received real views, stars, clones, issues, or comments after a visible share.</span>
-      <small>The agent should not treat filtered posts as demand data. · needed by 2026-07-01</small>
-    </li><li>
-      <span class="urgency">next</span>
-      <strong>Product direction</strong>
-      <span>Decide whether to keep validating the owner-action board or park it after the first visible channel read.</span>
-      <small>The agent needs a stop rule once exposure is real. · needed by 2026-07-03</small>
-    </li></ul>
+          ${renderProjectActions(project.owner_actions)}
         </section>
         <section>
           <h3>Recent commits</h3>
-          <ul><li>
-      <code>23a6851</code>
-      <span>Record ClaudeAI Reddit filter</span>
-    </li><li>
-      <code>deabc2b</code>
-      <span>Record Ask HN channel block</span>
-    </li></ul>
+          ${renderCommits(project.recent_commits)}
         </section>
       </div>
     </article>
-  
-    </main>
-  </body>
-</html>
+  `;
+}
+
+function renderProjectActions(actions = []) {
+  if (actions.length === 0) {
+    return `<p>No owner action recorded.</p>`;
+  }
+
+  return `<ul>${actions
+    .map(
+      (action) => `<li>
+      <span class="urgency">${escapeHtml(action.urgency ?? "next")}</span>
+      <strong>${escapeHtml(action.where ?? "Owner")}</strong>
+      <span>${escapeHtml(action.what ?? "Action required.")}</span>
+      <small>${escapeHtml(action.why ?? "No reason recorded.")} · needed by ${escapeHtml(action.needed_by ?? "unscheduled")}</small>
+    </li>`
+    )
+    .join("")}</ul>`;
+}
+
+function renderCommits(commits = []) {
+  if (commits.length === 0) {
+    return `<p>No recent commit recorded.</p>`;
+  }
+
+  return `<ul>${commits
+    .map(
+      (commit) => `<li>
+      <code>${escapeHtml(commit.hash ?? "unknown")}</code>
+      <span>${escapeHtml(commit.message ?? "No commit message")}</span>
+    </li>`
+    )
+    .join("")}</ul>`;
+}
+
+function urgencyRank(urgency) {
+  switch (urgency) {
+    case "now":
+      return 0;
+    case "next":
+      return 1;
+    default:
+      return 2;
+  }
+}
+
+function sentenceLabel(value) {
+  return String(value)
+    .replaceAll("_", " ")
+    .replace(/^\w/, (letter) => letter.toUpperCase());
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}

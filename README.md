@@ -25,6 +25,18 @@ At the end of a run, have the agent write:
 
 The file should follow `product/agent-output-contract.md`. A board renderer can then turn that one file into a local HTML report.
 
+Render the bundled sample:
+
+```bash
+npm run render
+```
+
+Render an agent-written file:
+
+```bash
+npm run render -- .agent-owner-actions/status.json board.html
+```
+
 ## What It Tracks
 
 - Last agent run

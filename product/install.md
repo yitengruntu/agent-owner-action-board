@@ -14,6 +14,18 @@ This package is a local static demo for an owner-action board. It does not insta
 
 Open `demo/index.html` in a browser.
 
+Regenerate the sample board:
+
+```bash
+npm run render
+```
+
+Render a board from an agent-written status file:
+
+```bash
+npm run render -- .agent-owner-actions/status.json board.html
+```
+
 ## How This Would Connect Later
 
 A local agent should write a JSON file like `product/data-model.json` to:
