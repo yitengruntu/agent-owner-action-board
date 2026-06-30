@@ -90,3 +90,30 @@ Do not count this Reddit attempt as an exposure window. Do not repost the same q
 Next action:
 
 Move distribution to channels where the post can actually remain visible, or use existing GitHub traffic from direct project sharing as the next measurable signal.
+
+## 2026-06-30 r/ClaudeAI Comment Attempt
+
+Channel:
+
+- Reddit r/ClaudeAI comment in an active Claude Code habits thread.
+
+Thread:
+
+- https://www.reddit.com/r/ClaudeAI/comments/1u918ae/whats_a_small_claude_code_habit_that_ended_up/
+
+Observed result:
+
+- Owner reported that the comment was posted.
+- Agent checked the thread from a non-owner web view and could not find `agent-owner-action-board` or the GitHub repo URL in the visible page content.
+
+Interpretation:
+
+The owner action was completed, but external visibility is not confirmed yet. This should not start the 24-hour exposure window until the comment permalink is visible to normal readers.
+
+Decision:
+
+Treat this as pending visibility verification, not as a valid exposure window yet.
+
+Next action:
+
+Owner should provide the direct Reddit comment permalink or a logged-out/incognito screenshot showing the comment visible in the thread.

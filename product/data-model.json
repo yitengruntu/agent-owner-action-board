@@ -1,16 +1,21 @@
 {
   "version": 1,
-  "generated_at": "2026-06-30T13:25:00+08:00",
+  "generated_at": "2026-06-30T15:31:00+08:00",
   "projects": [
     {
       "id": "agent-owner-action-board",
       "name": "Agent Owner Action Board",
       "status": "waiting_for_owner",
-      "last_run_at": "2026-06-30T13:20:00+08:00",
-      "current_checkpoint": "The agent prepared a GitHub Pages demo and tried two public discussion channels. Hacker News and Reddit both filtered the posts before a valid exposure window could start.",
+      "last_run_at": "2026-06-30T15:31:00+08:00",
+      "current_checkpoint": "The owner posted the selected r/ClaudeAI comment, but a non-owner web check did not show the repo URL or comment content yet.",
       "blocked": true,
-      "blocker": "The project needs a visible distribution channel or a GitHub traffic read before the agent can make a demand decision.",
+      "blocker": "The Reddit comment visibility is unverified; the 24-hour exposure window should not start until a public comment permalink or logged-out view confirms visibility.",
       "recent_commits": [
+        {
+          "hash": "0f422d6",
+          "message": "Record ClaudeAI visible test candidate",
+          "created_at": "2026-06-30T15:20:00+08:00"
+        },
         {
           "hash": "23a6851",
           "message": "Record ClaudeAI Reddit filter",
@@ -28,23 +33,23 @@
           "status": "open",
           "urgency": "now",
           "needed_by": "2026-07-01",
-          "where": "GitHub Traffic or any visible community thread",
-          "what": "Confirm whether the repo received real views, stars, clones, issues, or comments after a visible share.",
-          "why": "The agent should not treat filtered posts as demand data."
+          "where": "Reddit r/ClaudeAI",
+          "what": "Provide the direct comment permalink or confirm from logged-out/incognito view that the comment with the GitHub repo link is visible.",
+          "why": "The agent should not start a 24-hour demand read from a hidden or filtered comment."
         },
         {
           "id": "oa-002",
           "status": "open",
           "urgency": "next",
-          "needed_by": "2026-07-03",
-          "where": "Product direction",
-          "what": "Decide whether to keep validating the owner-action board or park it after the first visible channel read.",
-          "why": "The agent needs a stop rule once exposure is real."
+          "needed_by": "2026-07-01",
+          "where": "GitHub Traffic",
+          "what": "If the Reddit comment is visible, check repo views, unique visitors, clones, stars, issues, and comments 24 hours after the visible timestamp.",
+          "why": "The first demand read should be based on a valid visible exposure window."
         }
       ],
       "next_review": {
         "date": "2026-07-01",
-        "reason": "24-hour read after the first visible exposure or direct GitHub share"
+        "reason": "24-hour read only if the Reddit comment is publicly visible; otherwise choose another visible channel"
       }
     }
   ]
