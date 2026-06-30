@@ -4,6 +4,7 @@ const requiredFiles = [
   "README.md",
   "LICENSE",
   "demo/index.html",
+  "product/agent-output-contract.md",
   "docs/index.html",
   "product/data-model.json",
   "product/install.md",

@@ -1,19 +1,25 @@
 {
   "version": 1,
+  "generated_at": "2026-06-30T13:25:00+08:00",
   "projects": [
     {
-      "id": "example-project",
-      "name": "Short-Cycle Business Lab",
+      "id": "agent-owner-action-board",
+      "name": "Agent Owner Action Board",
       "status": "waiting_for_owner",
-      "last_run_at": "2026-06-20T16:40:00+08:00",
-      "current_checkpoint": "Experiment 001 was killed after Product Hunt validation. Next useful work requires choosing the narrower owner-action test surface.",
+      "last_run_at": "2026-06-30T13:20:00+08:00",
+      "current_checkpoint": "The agent prepared a GitHub Pages demo and tried two public discussion channels. Hacker News and Reddit both filtered the posts before a valid exposure window could start.",
       "blocked": true,
-      "blocker": "A new public test needs owner approval before any external launch.",
+      "blocker": "The project needs a visible distribution channel or a GitHub traffic read before the agent can make a demand decision.",
       "recent_commits": [
         {
-          "hash": "288a905",
-          "message": "Record Product Hunt decision for runbook kit",
-          "created_at": "2026-06-20T16:20:00+08:00"
+          "hash": "23a6851",
+          "message": "Record ClaudeAI Reddit filter",
+          "created_at": "2026-06-30T12:54:00+08:00"
+        },
+        {
+          "hash": "deabc2b",
+          "message": "Record Ask HN channel block",
+          "created_at": "2026-06-30T12:27:00+08:00"
         }
       ],
       "owner_actions": [
@@ -21,24 +27,24 @@
           "id": "oa-001",
           "status": "open",
           "urgency": "now",
-          "needed_by": "2026-06-21",
-          "where": "Product Hunt, GitHub, or a founder forum",
-          "what": "Approve or reject a narrow public demo for Agent Owner Action Board.",
-          "why": "A public test is required to measure install attempts or setup questions."
+          "needed_by": "2026-07-01",
+          "where": "GitHub Traffic or any visible community thread",
+          "what": "Confirm whether the repo received real views, stars, clones, issues, or comments after a visible share.",
+          "why": "The agent should not treat filtered posts as demand data."
         },
         {
           "id": "oa-002",
-          "status": "waiting",
+          "status": "open",
           "urgency": "next",
-          "needed_by": "2026-06-23",
-          "where": "GitHub repo settings",
-          "what": "Create a public repo only if the demo launch is approved.",
-          "why": "The agent should not publish from the wrong account or create external assets without approval."
+          "needed_by": "2026-07-03",
+          "where": "Product direction",
+          "what": "Decide whether to keep validating the owner-action board or park it after the first visible channel read.",
+          "why": "The agent needs a stop rule once exposure is real."
         }
       ],
       "next_review": {
-        "date": "2026-06-23",
-        "reason": "72-hour signal window after an approved public demo"
+        "date": "2026-07-01",
+        "reason": "24-hour read after the first visible exposure or direct GitHub share"
       }
     }
   ]

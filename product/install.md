@@ -6,6 +6,7 @@ This package is a local static demo for an owner-action board. It does not insta
 
 - `demo/index.html`: generated static demo
 - `product/data-model.json`: sample project status and owner-action data
+- `product/agent-output-contract.md`: JSON contract an agent can write at the end of each run
 - `product/scope.md`: product scope
 - `product/validation-plan.md`: validation rules
 
@@ -15,17 +16,13 @@ Open `demo/index.html` in a browser.
 
 ## How This Would Connect Later
 
-A real version should let a local agent write a JSON file with:
+A local agent should write a JSON file like `product/data-model.json` to:
 
-- project name
-- last run timestamp
-- current checkpoint
-- blocker
-- owner actions
-- recent commits
-- next review date
+```text
+.agent-owner-actions/status.json
+```
 
-The board should render that JSON into a local HTML report.
+The exact contract is documented in `product/agent-output-contract.md`. The board should render that JSON into a local HTML report.
 
 ## Stop Rule
 
