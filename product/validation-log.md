@@ -1,0 +1,19 @@
+# Validation Log
+
+## 2026-06-30 Prep
+
+Observed state:
+
+- Repo exists as a static local owner-action board demo.
+- Demo was copied to `docs/index.html` for GitHub Pages.
+- GitHub issue template added to collect concrete connector requests.
+- Distribution copy added.
+- Validation script added.
+
+Decision:
+
+Move Agent Owner Action Board into active validation after GitHub Pages and repo About are configured.
+
+Next action:
+
+Owner needs to enable GitHub Pages from `main /docs` and set repo About fields. After that, run one narrow distribution post and read results at 24 hours and 72 hours.

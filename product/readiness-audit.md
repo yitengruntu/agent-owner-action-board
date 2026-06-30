@@ -10,7 +10,7 @@ Do not public-launch this yet. First package the owner-action focused demo as a 
 
 - Clear pain: owners cannot tell what a stopped autonomous agent needs from them next.
 - Narrow MVP: static local HTML generated from JSON.
-- Demo exists at `dist/agent-control-board/index.html`.
+- Demo exists at `demo/index.html` and is mirrored to `docs/index.html` for GitHub Pages.
 - Data model exists at `product/data-model.json`.
 - Validation plan exists.
 - Experiment 001 showed broad runbook positioning is too weak, so this must stay narrow.
@@ -42,3 +42,7 @@ Owner approval would be required for:
 ## Stop Rule
 
 Do not continue building this into a full tool until at least one external user asks how to run it, how to connect it to a local agent, or how to customize the owner-action format.
+
+## Current Launch Gate
+
+The static demo is ready for GitHub Pages setup. Do not build connectors until the public probe produces a concrete runner request.

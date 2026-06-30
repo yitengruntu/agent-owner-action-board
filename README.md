@@ -6,9 +6,12 @@ This is a small local demo for people running coding or business agents on their
 
 ## Try The Demo
 
-Open:
+- Local demo: open `demo/index.html`
+- GitHub Pages-ready demo: `docs/index.html`
 
-`demo/index.html`
+Expected public demo URL after enabling GitHub Pages from `main /docs`:
+
+`https://yitengruntu.github.io/agent-owner-action-board/`
 
 The demo uses `product/data-model.json` as the example project state.
 
@@ -48,3 +51,9 @@ The static demo shows the expected shape in `product/data-model.json`.
 Open an issue if you want this connected to a specific workflow such as Codex, Claude Code, Cursor, cron, GitHub Actions, or a custom local runner.
 
 That connection request is the validation signal for deciding whether this should become a real local utility.
+
+## Run The Check
+
+```bash
+npm run validate
+```

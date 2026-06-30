@@ -1,0 +1,33 @@
+name: Connector request
+description: Ask for Agent Owner Action Board to connect to a specific agent workflow.
+title: "[Connector request]: "
+labels: ["connector-request"]
+body:
+  - type: dropdown
+    id: runner
+    attributes:
+      label: Which agent runner should this connect to?
+      options:
+        - Codex
+        - Claude Code
+        - Cursor
+        - GitHub Actions
+        - cron or launchd
+        - custom local script
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: owner-action
+    attributes:
+      label: What owner action should the board track?
+      description: Examples include data export needed, account permission needed, approval needed, or decision due.
+    validations:
+      required: true
+  - type: textarea
+    id: current-workaround
+    attributes:
+      label: How do you track this today?
+      description: Terminal logs, todo files, Slack, notes, manual check-ins, or something else.
+    validations:
+      required: true
