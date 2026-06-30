@@ -6,6 +6,7 @@ const requiredFiles = [
   "LICENSE",
   "demo/index.html",
   "product/agent-output-contract.md",
+  "product/agent-integration-prompt.md",
   "docs/index.html",
   "product/data-model.json",
   "product/install.md",
@@ -53,6 +54,13 @@ const readme = fs.readFileSync("README.md", "utf8");
 for (const marker of ["https://yitengruntu.github.io/agent-owner-action-board/", "Open an issue"]) {
   if (!readme.includes(marker)) {
     throw new Error(`README missing marker: ${marker}`);
+  }
+}
+
+const integrationPrompt = fs.readFileSync("product/agent-integration-prompt.md", "utf8");
+for (const marker of [".agent-owner-actions/status.json", "npm run check:status", "waiting_for_owner"]) {
+  if (!integrationPrompt.includes(marker)) {
+    throw new Error(`Integration prompt missing marker: ${marker}`);
   }
 }
 

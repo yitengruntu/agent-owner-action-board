@@ -25,6 +25,8 @@ At the end of a run, have the agent write:
 
 The file should follow `product/agent-output-contract.md`. A board renderer can then turn that one file into a local HTML report.
 
+Copy-paste integration instructions for a local agent live in `product/agent-integration-prompt.md`.
+
 Render the bundled sample:
 
 ```bash

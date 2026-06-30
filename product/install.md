@@ -14,6 +14,8 @@ This package is a local static demo for an owner-action board. It does not insta
 
 Open `demo/index.html` in a browser.
 
+To connect a local agent, paste `product/agent-integration-prompt.md` into that agent's operating instructions.
+
 Regenerate the sample board:
 
 ```bash
