@@ -19,6 +19,8 @@ console.log(`Rendered ${targets.join(", ")} from ${inputPath}`);
 
 function renderBoard(data) {
   const projects = data.projects;
+  const description =
+    "A local owner-action report for autonomous AI agents: blockers, decisions, data requests, and next review windows.";
   const openActions = projects
     .flatMap((project) =>
       Array.isArray(project.owner_actions)
@@ -34,7 +36,14 @@ function renderBoard(data) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agent Owner Action Board Demo</title>
+    <title>Agent Owner Action Board</title>
+    <meta name="description" content="${description}">
+    <meta property="og:title" content="Agent Owner Action Board">
+    <meta property="og:description" content="${description}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Agent Owner Action Board">
+    <meta name="twitter:description" content="${description}">
     <style>
       :root {
         --ink: #101513;
