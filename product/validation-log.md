@@ -117,3 +117,30 @@ Treat this as pending visibility verification, not as a valid exposure window ye
 Next action:
 
 Owner should provide the direct Reddit comment permalink or a logged-out/incognito screenshot showing the comment visible in the thread.
+
+## 2026-06-30 r/ClaudeAI Comment Removed
+
+Channel:
+
+- Reddit r/ClaudeAI comment in the Claude Code habits thread.
+
+Thread:
+
+- https://www.reddit.com/r/ClaudeAI/comments/1u918ae/whats_a_small_claude_code_habit_that_ended_up/
+
+Observed result:
+
+- Owner screenshot shows the comment state: "Comment removed by Reddit."
+- The comment had 1 upvote but no public visibility.
+
+Interpretation:
+
+This confirms r/ClaudeAI is not a usable validation channel for this account right now. The attempt is a channel-access failure, not product demand evidence.
+
+Decision:
+
+Do not count this as a valid exposure window. Do not make further r/ClaudeAI attempts for this probe from the same Reddit account.
+
+Next action:
+
+Move to a non-Reddit, non-HN visible channel or a direct GitHub/website distribution path.

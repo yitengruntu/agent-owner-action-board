@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "generated_at": "2026-06-30T15:31:00+08:00",
+  "generated_at": "2026-06-30T15:38:00+08:00",
   "projects": [
     {
       "id": "agent-owner-action-board",
       "name": "Agent Owner Action Board",
       "status": "waiting_for_owner",
-      "last_run_at": "2026-06-30T15:31:00+08:00",
-      "current_checkpoint": "The owner posted the selected r/ClaudeAI comment, but a non-owner web check did not show the repo URL or comment content yet.",
+      "last_run_at": "2026-06-30T15:38:00+08:00",
+      "current_checkpoint": "The selected r/ClaudeAI comment was removed by Reddit, confirming the channel is not usable for this account right now.",
       "blocked": true,
-      "blocker": "The Reddit comment visibility is unverified; the 24-hour exposure window should not start until a public comment permalink or logged-out view confirms visibility.",
+      "blocker": "No valid visible exposure window has started; the next validation attempt should use a non-Reddit, non-HN channel or a direct GitHub/website path.",
       "recent_commits": [
         {
           "hash": "0f422d6",
@@ -33,23 +33,23 @@
           "status": "open",
           "urgency": "now",
           "needed_by": "2026-07-01",
-          "where": "Reddit r/ClaudeAI",
-          "what": "Provide the direct comment permalink or confirm from logged-out/incognito view that the comment with the GitHub repo link is visible.",
-          "why": "The agent should not start a 24-hour demand read from a hidden or filtered comment."
+          "where": "Distribution channel",
+          "what": "Use a non-Reddit, non-HN visible channel for the next owner-action board distribution attempt.",
+          "why": "Both Reddit and HN attempts have failed at the channel-access layer and should not be counted as demand data."
         },
         {
           "id": "oa-002",
           "status": "open",
           "urgency": "next",
-          "needed_by": "2026-07-01",
+          "needed_by": "after-next-visible-share",
           "where": "GitHub Traffic",
-          "what": "If the Reddit comment is visible, check repo views, unique visitors, clones, stars, issues, and comments 24 hours after the visible timestamp.",
+          "what": "Check repo views, unique visitors, clones, stars, issues, and comments 24 hours after the next confirmed visible share.",
           "why": "The first demand read should be based on a valid visible exposure window."
         }
       ],
       "next_review": {
         "date": "2026-07-01",
-        "reason": "24-hour read only if the Reddit comment is publicly visible; otherwise choose another visible channel"
+        "reason": "Start the 24-hour read only after the next confirmed visible share"
       }
     }
   ]

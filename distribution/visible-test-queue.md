@@ -12,6 +12,8 @@ Use this first:
 - Link: https://www.reddit.com/r/ClaudeAI/comments/1u918ae/whats_a_small_claude_code_habit_that_ended_up/
 - Why: fresh thread, already about Claude Code habits, includes task-list and non-coding workflow discussion.
 - Risk: r/ClaudeAI has filtered this account before, so comment should be conversational and concise.
+- Result: attempted on 2026-06-30; owner screenshot showed "Comment removed by Reddit."
+- Decision: do not retry r/ClaudeAI from this account for this probe.
 
 Safer comment:
 
