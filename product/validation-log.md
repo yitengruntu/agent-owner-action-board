@@ -17,3 +17,21 @@ Move Agent Owner Action Board into active validation after GitHub Pages and repo
 Next action:
 
 Owner needs to enable GitHub Pages from `main /docs` and set repo About fields. After that, run one narrow distribution post and read results at 24 hours and 72 hours.
+
+## 2026-06-30 Setup Confirmed
+
+Observed state:
+
+- GitHub Pages enabled and returning HTTP 200.
+- Demo URL: https://yitengruntu.github.io/agent-owner-action-board/
+- Repo About description set.
+- Repo homepage set.
+- Repo topics set: `ai-agents`, `automation`, `claude-code`, `codex`, `local-first`.
+
+Decision:
+
+Agent Owner Action Board is ready for one narrow external distribution test.
+
+Next action:
+
+Use the prepared distribution copy to test whether local-agent users need an owner-action handoff surface before building any connector.
