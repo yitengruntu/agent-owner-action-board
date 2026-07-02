@@ -245,10 +245,11 @@ Observed result from owner screenshot:
 - Popular content shown: `Overview`, 3 views, 1 unique visitor.
 - The largest clone spike appears around 2026-06-30.
 - The screenshot does not show stars, forks, issues, pull requests, or user comments.
+- Owner later confirmed current repository engagement is all zero: 0 stars, 0 forks, 0 issues, 0 pull requests, and no comments.
 
 Interpretation:
 
-The GitHub traffic is contradictory. Views and unique visitors are extremely low, while clones and unique cloners are very high. Because there is no matching forum discussion, issue, star, or visitor volume, the clone spike should be treated as suspicious or automated until proven otherwise. It is not strong evidence of real demand.
+The GitHub traffic is contradictory. Views and unique visitors are extremely low, while clones and unique cloners are very high. Because there is no matching forum discussion, issue, star, fork, pull request, comment, or visitor volume, the clone spike should be treated as suspicious or automated until proven otherwise. It is not strong evidence of real demand.
 
 Decision:
 
